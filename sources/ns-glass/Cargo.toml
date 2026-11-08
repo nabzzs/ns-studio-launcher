@@ -1,0 +1,18 @@
+[package]
+name = "ns-glass"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+
+[dependencies]
+egui = "0.36.2"
+eframe = { version = "0.36.2", default-features = false, features = ["glow"] }
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+rfd = "0.17"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[target.'cfg(target_os = "windows")'.dependencies]
+window-vibrancy = "0.7"
