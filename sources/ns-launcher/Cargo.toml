@@ -1,0 +1,31 @@
+[package]
+name = "ns-launcher"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+build = "build.rs"
+
+[dependencies]
+ns-glass = { path = "../ns-glass" }
+egui = "0.36.2"
+eframe = { version = "0.36.2", default-features = false, features = ["default_fonts", "wgpu", "glow", "accesskit"] }
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "webp"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rfd = "0.17"
+
+[build-dependencies]
+winresource = "0.1"
+
+[dev-dependencies]
+egui_kittest = { version = "0.36", features = ["eframe", "wgpu"] }
+
+[profile.dev]
+debug = 0
+incremental = false
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[target.'cfg(windows)'.dependencies]
+window-vibrancy = "0.7"
